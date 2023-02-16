@@ -19,7 +19,7 @@
 .pagination-wrap {
   user-select: none;
   display: flex;
-    
+
 }
 
 .pagination-layout {
@@ -54,8 +54,8 @@
     color: white;
     border-color: #f1c152;
 }
-.button_colors>.active>a{  
-    color: white;  
+.button_colors>.active>a{
+    color: white;
 }
 .disabled{
     cursor: no-drop !important;
@@ -72,14 +72,14 @@ body {
     color: #737373;
     /* font-size: 15px; */
     line-height: 1.5;
-    font-family: "Yellowtail", cursive;
+
     background: #fff
 }
 </style>
 
 @stop
 
-@section('content') 
+@section('content')
 
 
 
@@ -180,7 +180,7 @@ body {
                             <div class="donaterange__bars" data-percent="60%">
                                 <div class="donaterange__bar"></div>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -298,10 +298,10 @@ body {
                                             <p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque In Ipsum id orci porta dapibus. Cras ultricies ligula sed magna dictum porta. Nulla quis lorem ut libero malesuada feugiat. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo eget malesuada. Proin Eget Tortor Risus.</p>
                                             <p>Sed porttitor lectus nibh. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Cras ultricies ligula sed magna dictum porta. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Nulla porttitor accumsan tincidunt. Donec sollicitudin molestie malesuada. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Sed porttitor lectus nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
                                             <p>Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada. Nulla porttitor accumsan tincidunt. Vivamus suscipit tortor eget felis porttitor volutpat. Cras ultricies ligula sed magna dictum porta. Donec sollicitudin molestie malesuada. Nulla quis lorem ut libero malesuada feugiat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>
-                                      
+
                                     </div>
                                 </div>
-  
+
 @endsection
 
 @section('pageScript')
