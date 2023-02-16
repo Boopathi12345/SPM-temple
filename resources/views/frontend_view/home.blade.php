@@ -39,7 +39,7 @@
     padding: 100px 122px 44px 133px;
 } */
 .banner__content h2 {
-    font-family: "Yellowtail", cursive;
+
 }
 
 
@@ -85,6 +85,67 @@
     width: 210px !important;
     height: 70px !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+.video-container{
+	margin:0 auto;
+	width:100px;
+
+}
+.js-video{
+	height:329px;
+	width:640px;
+	background:#f1eaea;
+	position:relative;
+	margin:10% auto;
+}
+.play i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: #EA0B8C;
+  font-size: 70px;
+  background: #fff;
+  border-radius: 50%;
+  height: 40px;
+  width: 51px;
+  line-height: 50px;
+  z-index:2;
+}
+.video-poster{
+		background: url('http://moarthemes.com/wp-content/uploads/2015/03/video_background.png');
+	  background-repeat: no-repeat;
+	  position: absolute;
+	  width: 940px;
+	  height: 529px;
+
+}
+.play i:hover{
+	cursor:pointer;
+}
+.js-video iframe{
+	z-index:5;
+	position:relative;
+
+}
+.video_12{
+    margin-top: 160px;
+    padding-right: 60px;
+}
+.video-container-fluid{
+    margin-bottom: -175px;
+}
+
+
 </style>
 
 @stop
@@ -346,6 +407,49 @@
     </div>
     <!-- ================> Shedule section end here <================== -->
 
+
+
+    <!-- =================> video section start here   <==================-->
+
+
+        <div class="section__header text-center">
+        <h2>Video</h2>
+        <div class="video-container-fluid">
+            <div class="row">
+                <div class="col-6" >
+            <div class="js-video ng-isolate-scope" >
+                        <div class="video-poster">
+                        </div>
+                            <div class="play"><i class="fa fa-play-circle"></i></div>
+                        </div>
+        </div>
+
+
+        <div class="col-6 video_12">
+           <p>Sri Puthu Mariamman Temple is the oldest shrine in Desavilakku,Kilakkumedu. The temple
+            is one of the most prominent places of worship for Tamil Hindus in the country, built to honour
+             Goddess Mariamman – the deity of disease and protection. Originally erected by Seeranga Kownder – in 1827,
+             the temple was modified
+             to its present structure in 1862 but has undergone several renovations since.</p>
+
+        </div>
+
+    </div>
+    </div>
+</div>
+<script>
+    jQuery(document).ready(function() {
+	jQuery('.play i').click(function(event){
+	   event.preventDefault();
+	  //var url = $(this).html(); //this will not work
+	   $(".js-video").append('<iframe width="540" height="329" src="https://www.youtube.com/embed/ZsCL47eqgrs?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+		$(this).hide();
+		//$('video-poster').css('z-index','-1');
+
+	});
+});
+</script>
+    <!-- =================> video section End here   <==================-->
 
 
 
