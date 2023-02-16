@@ -105,7 +105,7 @@ right connector from last child*/
     text-decoration: none;
     background: #ededed;
     color: #666;
-    font-family: "Yellowtail", cursive;
+
     font-size: 11px;
     display: inline-block;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
@@ -208,7 +208,7 @@ Thanks :)*/
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    font-family: "Yellowtail", cursive;
+
 }
 
 body {
@@ -238,7 +238,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Yellowtail", cursive;
+
     font-weight: 400;
 }
 
@@ -554,7 +554,7 @@ h6 {
     border: 0;
     padding: 0 24px;
     line-height: 48px;
-    font-family: "Yellowtail", cursive;
+
     font-weight: 700;
 }
 
