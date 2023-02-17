@@ -86,65 +86,149 @@
     height: 70px !important;
 }
 
+/*    Video    */
 
+/* Optional styles */
 
-
-
-
-
-
-
-
-
-.video-container{
-	margin:0 auto;
-	width:100px;
-
+.demo_12{
+    background-color: black;
+    margin-top: 50px;
+    width: 50%;
+     height: 250px;
 }
-.js-video{
-	height:329px;
-	width:640px;
-	background:#f1eaea;
-	position:relative;
-	margin:10% auto;
+
+.video-play-button {
+  position: relative;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  box-sizing: content-box;
+  display: block;
+  width: 32px;
+  height: 44px;
+  /* background: #fa183d; */
+  border-radius: 50%;
+  padding: 18px 20px 18px 28px;
 }
-.play i {
+
+.video-play-button:before {
+  content: "";
   position: absolute;
+  z-index: 0;
   left: 50%;
   top: 50%;
-  color: #EA0B8C;
-  font-size: 70px;
-  background: #fff;
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: #ba1f24;
   border-radius: 50%;
-  height: 40px;
-  width: 51px;
-  line-height: 50px;
-  z-index:2;
-}
-.video-poster{
-		background: url('http://moarthemes.com/wp-content/uploads/2015/03/video_background.png');
-	  background-repeat: no-repeat;
-	  position: absolute;
-	  width: 940px;
-	  height: 529px;
-
-}
-.play i:hover{
-	cursor:pointer;
-}
-.js-video iframe{
-	z-index:5;
-	position:relative;
-
-}
-.video_12{
-    margin-top: 160px;
-    padding-right: 60px;
-}
-.video-container-fluid{
-    margin-bottom: -175px;
+  animation: pulse-border 1500ms ease-out infinite;
 }
 
+.video-play-button:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: #fa183d;
+  border-radius: 50%;
+  transition: all 200ms;
+}
+
+.video-play-button:hover:after {
+  background-color: darken(#fa183d, 10%);
+}
+
+.video-play-button img {
+  position: relative;
+  z-index: 3;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.video-play-button span {
+  display: block;
+  position: relative;
+  z-index: 3;
+  width: 0;
+  height: 0;
+  border-left: 32px solid #fff;
+	border-top: 22px solid transparent;
+	border-bottom: 22px solid transparent;
+}
+
+@keyframes pulse-border {
+  0% {
+    transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+    opacity: 0;
+  }
+}
+
+
+
+.video-overlay {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.80);
+  opacity: 0;
+  transition: all ease 500ms;
+}
+
+.video-overlay.open {
+  position: fixed;
+  z-index: 1000;
+  opacity: 1;
+}
+
+.video-overlay-close {
+  position: absolute;
+  z-index: 1000;
+  top: 15px;
+  right: 20px;
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 400;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.video-overlay-close:hover {
+  color: #fa183d;
+}
+
+.video-overlay iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  /* width: 90%; */
+  /* height: auto; */
+  box-shadow: 0 0 15px rgba(0,0,0,0.75);
+}
+
+
+
+.demo_31{
+    margin-top: 70px;
+}
 
 </style>
 
@@ -412,42 +496,58 @@
     <!-- =================> video section start here   <==================-->
 
 
+
+
+      <div class="container">
         <div class="section__header text-center">
-        <h2>Video</h2>
-        <div class="video-container-fluid">
-            <div class="row">
-                <div class="col-6" >
-            <div class="js-video ng-isolate-scope" >
-                        <div class="video-poster">
-                        </div>
-                            <div class="play"><i class="fa fa-play-circle"></i></div>
-                        </div>
+            <h2>Video</h2>
+        <div class="row align-item-center justify-content-between">
+          <div class="col-lg-7 demo_12">
+
+            <a id="play-video" class="video-play-button" href="#">
+                <span></span>
+              </a>
+
+
+              <div id="video-overlay" class="video-overlay">
+                <a class="video-overlay-close">&times;</a>
+              </div>
         </div>
+          <div class="col-lg-5 col-md-5 demo_31">
 
-
-        <div class="col-6 video_12">
-           <p>Sri Puthu Mariamman Temple is the oldest shrine in Desavilakku,Kilakkumedu. The temple
+            <p>Sri Puthu Mariamman Temple is the oldest shrine in Desavilakku,Kilakkumedu. The temple
             is one of the most prominent places of worship for Tamil Hindus in the country, built to honour
              Goddess Mariamman – the deity of disease and protection. Originally erected by Seeranga Kownder – in 1827,
              the temple was modified
              to its present structure in 1862 but has undergone several renovations since.</p>
 
-        </div>
+          </div>
+      </div>
+      </div>
 
-    </div>
-    </div>
-</div>
+
+  <!-- ROJO POGI PLAY BUTTON TO VIDEO EMBED OVERLAY -->
+
 <script>
-    jQuery(document).ready(function() {
-	jQuery('.play i').click(function(event){
-	   event.preventDefault();
-	  //var url = $(this).html(); //this will not work
-	   $(".js-video").append('<iframe width="540" height="329" src="https://www.youtube.com/embed/ZsCL47eqgrs?autoplay=1" frameborder="0" allowfullscreen></iframe>');
-		$(this).hide();
-		//$('video-poster').css('z-index','-1');
 
-	});
+$('#play-video').on('click', function(e){
+  e.preventDefault();
+  $('#video-overlay').addClass('open');
+  $("#video-overlay").append('<iframe width="560" height="315" src="https://www.youtube.com/embed/ngElkyQ6Rhs" frameborder="0" allowfullscreen></iframe>');
 });
+
+$('.video-overlay, .video-overlay-close').on('click', function(e){
+  e.preventDefault();
+  close_video();
+});
+
+$(document).keyup(function(e){
+  if(e.keyCode === 27) { close_video(); }
+});
+
+function close_video() {
+  $('.video-overlay.open').removeClass('open').find('iframe').remove();
+};
 </script>
     <!-- =================> video section End here   <==================-->
 
