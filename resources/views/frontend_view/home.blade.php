@@ -549,7 +549,7 @@ function close_video() {
   $('.video-overlay.open').removeClass('open').find('iframe').remove();
 };
 </script>
-    <!-- =================> video section End here   <==================-->
+    <!-- ================> video section End here   <==================-->
 
 
 
