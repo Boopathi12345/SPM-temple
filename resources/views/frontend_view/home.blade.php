@@ -125,7 +125,7 @@
   object-fit: contain;
   z-index: 1;
   position: relative;
-  border-radius: 12px !important;
+  border-radius: 4px !important;
 }
 
 .videoBtn {
