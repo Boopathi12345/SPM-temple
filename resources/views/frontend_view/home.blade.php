@@ -1,6 +1,7 @@
 @extends('layouts.frontend')
 
 @section('pagestyles')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <style>
 .video_align {
     width: 100%;
@@ -88,148 +89,242 @@
 
 /*    Video    */
 
-/* Optional styles */
 
-.demo_12{
-    background-color: black;
-    margin-top: 50px;
-    width: 50%;
-     height: 250px;
+ .video-section {
+  background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity))!important;
+  width: 100%;
+  height: 420px;
 }
 
-.video-play-button {
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items:  flex-start;
+  flex-direction: row;
+  max-width: 1056px;
+  margin: 0 auto;
+  width: 100%;
+  padding-bottom: 505px;
+}
+
+.thumbnail {
+  flex: 0.5;
+}
+
+.video-thumbnail {
+  width: 540px;
+  margin: 2em 4em 0 0;
+  order: 2;
+  display: block;
   position: relative;
-  z-index: 10;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  box-sizing: content-box;
-  display: block;
-  width: 32px;
-  height: 44px;
-  /* background: #fa183d; */
-  border-radius: 50%;
-  padding: 18px 20px 18px 28px;
 }
 
-.video-play-button:before {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  display: block;
-  width: 80px;
-  height: 80px;
-  background: #ba1f24;
-  border-radius: 50%;
-  animation: pulse-border 1500ms ease-out infinite;
-}
-
-.video-play-button:after {
-  content: "";
-  position: absolute;
+.video-thumbnail img{
+  width: inherit;
+  height: inherit;
+  object-fit: contain;
   z-index: 1;
-  left: 50%;
+  position: relative;
+  border-radius: 12px !important;
+}
+
+.videoBtn {
+  z-index: 2;
+  position: absolute;
   top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  display: block;
-  width: 80px;
-  height: 80px;
-  background: #fa183d;
-  border-radius: 50%;
-  transition: all 200ms;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
 }
 
-.video-play-button:hover:after {
-  background-color: darken(#fa183d, 10%);
-}
-
-.video-play-button img {
-  position: relative;
-  z-index: 3;
-  max-width: 100%;
-  width: auto;
-  height: auto;
-}
-
-.video-play-button span {
-  display: block;
-  position: relative;
-  z-index: 3;
-  width: 0;
-  height: 0;
-  border-left: 32px solid #fff;
-	border-top: 22px solid transparent;
-	border-bottom: 22px solid transparent;
-}
-
-@keyframes pulse-border {
-  0% {
+@keyframes playPluse {
+  from {
     transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
     opacity: 1;
   }
-  100% {
+  to {
     transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
     opacity: 0;
   }
 }
 
-
-
-.video-overlay {
-  position: fixed;
-  z-index: -1;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0,0,0,0.80);
-  opacity: 0;
-  transition: all ease 500ms;
-}
-
-.video-overlay.open {
-  position: fixed;
-  z-index: 1000;
-  opacity: 1;
-}
-
-.video-overlay-close {
+.videoBtn::before {
   position: absolute;
-  z-index: 1000;
-  top: 15px;
-  right: 20px;
-  font-size: 36px;
-  line-height: 1;
-  font-weight: 400;
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 200ms;
-}
-
-.video-overlay-close:hover {
-  color: #fa183d;
-}
-
-.video-overlay iframe {
-  position: absolute;
+  content: "";
   top: 50%;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  /* width: 90%; */
-  /* height: auto; */
-  box-shadow: 0 0 15px rgba(0,0,0,0.75);
+  transform: translateX(-50%), translateY(-50%);
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-color: #f80864;
+  border-radius: 50%;
+  animation: playPluse 1.5s ease-out infinite;
+  opacity: 0.5,
+}
+
+.videoBtn span {
+  background-color: rgba(241, 140, 8, 0.871);
+  width: inherit;
+  height: inherit;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.videoBtn i {
+  font-size: 48px;
+}
+
+.attribution {
+  width: 540px;
+  display: flex;
+  justify-content: center;
+}
+
+.attribution p {
+  margin-top: 0;
+  margin-left: 20px;
+  font-size: 1em;
+}
+
+.video-content {
+  flex: 0.5;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.info-section {
+  display: flex;
+  align-items: flex-start;
+}
+
+.info-group {
+  margin-top: 0.5em;
+}
+
+.info-heading {
+  font-size: 1.2rem !important;
+  color: #A50740;
+}
+
+.video-content p {
+  margin: 0 !important;
+  font-size: 0.85rem;
 }
 
 
 
-.demo_31{
-    margin-top: 70px;
+
+
+
+
+iframe {
+    width: 85%;
+    height: 75%;
+  }
+
+@media screen and (max-width: 1200px) {
+  .video-section {
+    height: 460px;
+  }
+
+  .thumbnail {
+    margin-top: 3%;
+  }
+
+  .video-thumbnail {
+    width: 450px;
+  }
+
+  .video-content {
+    margin-top: 1.5em;
+  }
 }
 
+@media screen and (max-width: 1024px) {
+  .video-section {
+    height: 780px;
+  }
+
+  .video-container {
+    justify-content: flex-start;
+    align-items:  center;
+    flex-direction: column;
+    padding-bottom: 780px;
+  }
+
+  .video-thumbnail {
+    margin: 0;
+    height: 300px;
+    width: 780px;
+
+  }
+
+  .video-content {
+    margin-top: 30px;
+  }
+
+  .video-content h2 {
+    margin: 1em 0;
+  }
+
+  iframe {
+    width: 85%;
+    height: 60%;
+  }
+
+  .video-action {
+    text-align: center;
+  }
+}
+.info-aboutUs{
+    margin-top: 60px;
+}
+
+@media screen and (max-width: 600px) {
+  .video-section {
+    height: 670px;
+  }
+
+  .video-thumbnail {
+    width: 320px;
+    height: 200px;
+  }
+
+  .video-content h2 {
+    font-size: 1.8rem;
+  }
+  iframe {
+    width: 85%;
+    height: 35%;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .video-content h2 {
+    font-size: 1.5rem;
+  }
+
+  iframe {
+    width: 85%;
+    height: 20%;
+  }
+}
 </style>
 
 @stop
@@ -496,59 +591,52 @@
     <!-- =================> video section start here   <==================-->
 
 
-
-
-      <div class="container">
+    <div id=tofi-video><link rel=stylesheet href=https://s.electerious.com/basicLightbox/dist/basicLightbox.min.css>
+        <script src=https://s.electerious.com/basicLightbox/dist/basicLightbox.min.js defer></script>
+    <div class=video-section id=modal-video-section>
         <div class="section__header text-center">
             <h2>Video</h2>
-        <div class="row align-item-center justify-content-between">
-          <div class="col-lg-7 demo_12">
+      <div class=container>
+        <div class=video-container>
+          <div class=thumbnail>
+            <div class=video-thumbnail>
+              <img src="/assets/12345.jpg" alt=Thumbnail>
+              <button class=videoBtn><span><i class="fa fa-play-circle" style="font-size:36px;"></i></span></button>
+              </div></div><div class=video-content>
 
-            <a id="play-video" class="video-play-button" href="#">
-                <span></span>
-              </a>
-
-
-              <div id="video-overlay" class="video-overlay">
-                <a class="video-overlay-close">&times;</a>
+                <div class=info-aboutUs>
+                  <div class=info-section>
+                    <img src="/assets/templesAdded.png" alt="">
+                    <div class=info-group><p class=info-heading>7.5 Lakh+ Temples</p>
+                    <p>We are a community-led platform listing more than 7.5 lakh temples across India.</p>
+                    </div></div><div class=info-section><img src="/assets/contributions.png" alt="">
+                    <div class=info-group><p class=info-heading>2000+ Contributors</p>
+                    <p>We have registered more than 2000 contributors from the community.</p>
+                    </div></div><div class=info-section><img src="/assets/languages.png" alt="">
+                    <div class=info-group><p class=info-heading>Available in 7 Languages</p>
+                    <p>Our content will soon be available in 7 Indian Languages to serve Indian audience.</p>
+                    </div>
+                  </div>
+                </div>
+                   </div>
+                  </div>
+                </div>
               </div>
-        </div>
-          <div class="col-lg-5 col-md-5 demo_31">
+    </div>
+              <script>document.querySelector('button.videoBtn').onclick = () => {
+                basicLightbox.create(`
+                  <iframe id="yt" src="https://www.youtube.com/embed/4nn8Su_F53g?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                `).show()
 
-            <p>Sri Puthu Mariamman Temple is the oldest shrine in Desavilakku,Kilakkumedu. The temple
-            is one of the most prominent places of worship for Tamil Hindus in the country, built to honour
-             Goddess Mariamman – the deity of disease and protection. Originally erected by Seeranga Kownder – in 1827,
-             the temple was modified
-             to its present structure in 1862 but has undergone several renovations since.</p>
+                }
 
-          </div>
-      </div>
-      </div>
+                document.getElementById('exploreTemples-btn').addEventListener('click', function(e) {
+                  window.location.href = "/explore"
+                })
+                </script>
+                </div>
 
 
-  <!-- ROJO POGI PLAY BUTTON TO VIDEO EMBED OVERLAY -->
-
-<script>
-
-$('#play-video').on('click', function(e){
-  e.preventDefault();
-  $('#video-overlay').addClass('open');
-  $("#video-overlay").append('<iframe width="560" height="315" src="https://www.youtube.com/embed/ngElkyQ6Rhs" frameborder="0" allowfullscreen></iframe>');
-});
-
-$('.video-overlay, .video-overlay-close').on('click', function(e){
-  e.preventDefault();
-  close_video();
-});
-
-$(document).keyup(function(e){
-  if(e.keyCode === 27) { close_video(); }
-});
-
-function close_video() {
-  $('.video-overlay.open').removeClass('open').find('iframe').remove();
-};
-</script>
     <!-- ================> video section End here   <==================-->
 
 
