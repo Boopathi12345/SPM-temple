@@ -603,7 +603,6 @@ iframe {
               <img src="/assets/12345.jpg" alt=Thumbnail>
               <button class=videoBtn><span><i class="fa fa-play-circle" style="font-size:36px;"></i></span></button>
               </div></div><div class=video-content>
-
                 <div class=info-aboutUs>
                   <div class=info-section>
                     <img src="/assets/templesAdded.png" alt="">
